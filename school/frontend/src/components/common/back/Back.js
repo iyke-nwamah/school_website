@@ -1,18 +1,19 @@
-import React from "react"
-import { useLocation } from "react-router-dom"
+import React from "react";
+import { useLocation } from "react-router-dom";
 
 const Back = ({ title }) => {
-  const location = useLocation()
+  const location = useLocation();
+  const parentPath = location.pathname.split("/")[1];
 
   return (
     <>
-      <section className='back'>
-        <h2>Home / {location.pathname.split("/")[1]}</h2>
+      <section className="back">
+        <h2>Home / {parentPath}</h2>
         <h1>{title}</h1>
       </section>
-      <div className='margin'></div>
+      <div className="margin"></div>
     </>
-  )
-}
+  );
+};
 
-export default Back
+export default Back;

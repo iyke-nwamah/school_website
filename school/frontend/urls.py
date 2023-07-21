@@ -1,6 +1,7 @@
-from django.urls import re_path
-from frontend.views import index
+from django.urls import path
+from .views import IndexView
 
 urlpatterns = [
-    re_path(r'^$', index, name='index'),
+    path('', IndexView.as_view(), name='index'),
+    # Add other URL patterns here if needed
 ]

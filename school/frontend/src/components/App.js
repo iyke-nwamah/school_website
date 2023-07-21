@@ -1,33 +1,36 @@
+// Import statements
 import React from 'react';
-import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import "./App.css";
-import Header from "./common/header/Header";
-import About from "./about/About";
-import CourseHome from "./allcourses/CourseHome";
-import Pricing from "./pricing/Pricing";
-import Blog from "./blog/Blog";
-import Contact from "./contact/Contact";
-import Footer from "./common/footer/Footer";
-import Home from "./home/Home";
+import './App.css';
 
+// Components
+import Header from './common/header/Header';
+import Footer from './common/footer/Footer';
+import Home from './home/Home';
+import About from './about/About';
+import CourseHome from './allcourses/CourseHome';
+import Pricing from './pricing/Pricing';
+import Blog from './blog/Blog';
+import Contact from './contact/Contact';
+
+// Main App component
 function App() {
   return (
     <Router>
-      <>
+      <div className="App">
         <Header />
         <Routes>
-          <Route exact path="/" element={<Home />} />
-          <Route exact path="/about" element={<About />} />
-          <Route exact path="/courses" element={<CourseHome />} />
-          <Route exact path="/pricing" element={<Pricing />} />
-          <Route exact path="/journal" element={<Blog />} />
-          <Route exact path="/contact" element={<Contact />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/courses" element={<CourseHome />} />
+          <Route path="/pricing" element={<Pricing />} />
+          <Route path="/journal" element={<Blog />} />
+          <Route path="/contact" element={<Contact />} />
         </Routes>
         <Footer />
-      </>
+      </div>
     </Router>
   );
 }
 
-ReactDOM.render(<App />, document.getElementById("app"));
+export default App;
