@@ -10,9 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
-from django.contrib.messages import constants as messages
 from pathlib import Path
-import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -22,20 +20,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-u2+xy94463@3(^55&(^o*j*kqbaabzvl9#kbh7&6he1ikb9oa7'
+SECRET_KEY = 'django-insecure-&vf8@&2ej&1!x#f@^-s%$gzfl2io&g+$y%v(a(#ihpl2o1f%sl'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-ALLOWED_HOSTS = ["localhost", "192.168.43.223"]
+DEBUG = True
 
-MESSAGE_TAGS = {
-    messages.DEBUG: 'info',
-    messages.INFO: 'info',
-    messages.SUCCESS: 'success',
-    messages.WARNING: 'warning',
-    messages.ERROR: 'danger'
-}
-
-CORS_ORIGIN_ALLOW_ALL = True
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -47,16 +37,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'MySchoolApp',
     'rest_framework',
-    'rest_framework.authtoken',
-    'debug_toolbar',
-    'accounts',
-    'social_django',
-    'corsheaders',
+    'frontend',
+    'school',
 ]
-
-AUTH_USER_MODEL = 'MySchoolApp.CustomUser'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -66,31 +50,14 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'corsheaders.middleware.CorsMiddleware',
-    'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
-
-INTERNAL_IPS = [
-    # other IP addresses
-    '127.0.0.1',
-]
-def show_toolbar(request):                                     
-    return True                                                 
-
-DEBUG_TOOLBAR_CONFIG = {                                       
-    "SHOW_TOOLBAR_CALLBACK" : show_toolbar,                    
-}                                                              
-
-if DEBUG:                                                   
-    import mimetypes                                                     
-    mimetypes.add_type("application/javascript", ".js", True)
 
 ROOT_URLCONF = 'MySchool.urls'
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR,'templates')],
+        'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -98,17 +65,10 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-             ],
-        # 'libraries':{
-        #                 'filename':  'MySchool.templatetags',
-        #                 'file_exists': 'MySchool.templatetags',
-
-        #     }
-        
+            ],
         },
     },
 ]
-
 
 WSGI_APPLICATION = 'MySchool.wsgi.application'
 
@@ -117,15 +77,10 @@ WSGI_APPLICATION = 'MySchool.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {   
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',   
-        'NAME': 'electronic_db',   
-        'USER': 'ik_user',   
-        'PASSWORD': 'september95',    
-        'HOST': 'localhost',   
-        'PORT': '5432',   
-          
-    }   
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
 }
 
 
@@ -153,7 +108,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'Africa/Lagos'
+TIME_ZONE = 'UTC'
 
 USE_I18N = True
 
@@ -163,61 +118,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-import os
-
-STATIC_URL = '/static/'
-STATICFILES_DIRS = [os.path.join(BASE_DIR,'static')]
-STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')
-
-MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads')
-MEDIA_URL = '/uploads/'
-
-# Default primary key field type
-# https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
-
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-REST_FRAMEWORK = {
-    'DEFAULT_RENDERER_CLASSES': [
-        'rest_framework.renderers.JSONRenderer',
-        'rest_framework.renderers.BrowsableAPIRenderer',
-        'rest_framework_xml.renderers.XMLRenderer',
-    ],
-    'DEFAULT_AUTHENTICATION_CLASSES': [
-        'rest_framework.authentication.SessionAuthentication',
-        'rest_framework.authentication.BasicAuthentication',
-    ],
-    'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.IsAuthenticated',
-    ],
-
-
-}
-
-#For Email Fill Out
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'email.host' # Host to domain 
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'ikechukwuarinze614@gmail.com'
-EMAIL_HOST_PASSWORD = ''
-DEFAULT_FROM_EMAIL = ''
-
-#Redirects
-LOGIN_REDIRECT_URL = 'MySchool'
-LOGIN_URL = 'login'
-
-#To Resize Images That Are Being Uploaded To Web App
-DJANGORESIZED_DEFAULT_SIZE = [500, 500]
-DJANGORESIZED_DEFAULT_QUALITY = 75
-DJANGORESIZED_DEFAULT_KEEP_META = True
-DJANGORESIZED_DEFAULT_NORMALIZE_ROTATION = True
-DJANGORESIZED_DEFAULT_FORMAT_EXTENSIONS = {'PNG': ".png"}
-
-TINYMCE_FILEBROWSER = True
-X_FRAME_OPTIONS = 'SAMEORIGIN'
-FILEBROWSER_DIRECTORY = ''
-DIRECTORY = ''
+STATIC_URL = 'static/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
