@@ -5,7 +5,10 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{% block title %}Iyke Online Learning{% endblock %}</title>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
     <link rel="icon" href="{% static 'frontend/favicon.ico' %}" />
     <link rel="apple-touch-icon" href="{% static 'frontend/logo192.png' %}" />
     <link
@@ -18,10 +21,11 @@
       integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
       crossorigin="anonymous"
     />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/16.14.0/umd/react.production.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.14.0/umd/react-dom.production.min.js"></script>
   </head>
   <body>
-    {% block content %}
-    {% endblock %}
+    {% block content %} {% endblock %}
     <!---Script-->
     <script src="{% static 'frontend/main.js' %}"></script>
   </body>

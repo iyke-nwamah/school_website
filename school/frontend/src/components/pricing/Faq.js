@@ -3,36 +3,37 @@ import { faq } from "../../dummydata";
 import Heading from "../common/heading/Heading";
 
 const Faq = () => {
-  const [activeIndex, setActiveIndex] = useState(null);
+  const [click, setClick] = useState(false)
 
-  const toggleAccordion = (index) => {
-    setActiveIndex((prevIndex) => (prevIndex === index ? null : index));
-  };
+  const toggle = (index) => {
+    if (click === index) {
+      return setClick(null)
+    }
+    setClick(index)
+  }
 
   return (
     <>
-      <Heading subtitle="FAQS" title="Frequently Asked Questions" />
-      <section className="faq">
-        <div className="container">
+      <Heading subtitle='FAQS' title='Frequently Ask Question' />
+      <section className='faq'>
+        <div className='container'>
           {faq.map((val, index) => (
-            <div className="box" key={index}>
-              <button className="accordion" onClick={() => toggleAccordion(index)}>
+            <div className='box'>
+              <button className='accordion' onClick={() => toggle(index)} key={index}>
                 <h2>{val.title}</h2>
-                <span>
-                  <i className={`fa fa-chevron-${activeIndex === index ? "down" : "right"}`}></i>
-                </span>
+                <span>{click === index ? <i className='fa fa-chevron-down'></i> : <i className='fa fa-chevron-right'></i>}</span>
               </button>
-              {activeIndex === index && (
-                <div className="text">
+              {click === index ? (
+                <div className='text'>
                   <p>{val.desc}</p>
                 </div>
-              )}
+              ) : null}
             </div>
           ))}
         </div>
       </section>
     </>
-  );
-};
+  )
+}
 
 export default Faq;

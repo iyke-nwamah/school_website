@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-&vf8@&2ej&1!x#f@^-s%$gzfl2io&g+$y%v(a(#ihpl2o1f%sl
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["localhost", '192.168.43.223']
 
 
 # Application definition
@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'frontend',
     'school',
+    'authy',
+    'knox',
 ]
 
 MIDDLEWARE = [
@@ -77,12 +79,16 @@ WSGI_APPLICATION = 'MySchool.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    'default': {   
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',   
+        'NAME': 'school',   
+        'USER': 'schooluser',   
+        'PASSWORD': 'september95@',    
+        'HOST': 'localhost',   
+        'PORT': '5432',   
+          
+    }   
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
@@ -108,7 +114,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Africa/Lagos'
 
 USE_I18N = True
 

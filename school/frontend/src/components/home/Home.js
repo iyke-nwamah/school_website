@@ -1,9 +1,9 @@
 import React from "react";
 import AboutCard from "../about/AboutCard";
-import Hblog from "./Hblog";
+import HBlog from "./HBlog";
 import HAbout from "./HAbout";
 import Hero from "./hero/Hero";
-import Hprice from "./Hprice";
+import HPrice from "./HPrice";
 import Testimonial from "./testimonial/Testimonial";
 
 const Home = () => {
@@ -13,8 +13,8 @@ const Home = () => {
       <AboutCard />
       <HAbout />
       <Testimonial />
-      <Hblog />
-      <Hprice />
+      <HBlog />
+      <HPrice />
     </>
   );
 };

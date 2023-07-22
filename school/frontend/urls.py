@@ -1,7 +1,6 @@
 from django.urls import path
-from .views import IndexView
+from frontend.views import index
 
 urlpatterns = [
-    path('', IndexView.as_view(), name='index'),
-    # Add other URL patterns here if needed
+    path('', index, name="index"),
 ]
