@@ -1,4 +1,5 @@
 import React from "react"
+import { Link } from "react-router-dom";
 import { blog } from "../../../dummydata"
 import "./Footer.css"
 
@@ -20,8 +21,8 @@ const Footer = () => {
       <footer>
         <div className='container padding'>
           <div className='box logo'>
-            <h1>The Age Technology</h1>
-            <span>ONLINE EDUCATION & LEARNING</span>
+            <h1>Ik Online Learning</h1>
+            <span>GREAT LEARNING EXPERIENCE</span>
             <p>The world is fast advancing in technology.</p>
 
             <i className='fab fa-facebook-f icon'></i>
@@ -31,7 +32,9 @@ const Footer = () => {
           <div className='box link'>
             <h3>Explore</h3>
             <ul>
-              <li>About Us</li>
+            <li>
+            <Link to="/about">About</Link>
+          </li>
               <li>Services</li>
               <li>Courses</li>
               <li>Blog</li>
@@ -74,15 +77,15 @@ const Footer = () => {
             <ul>
               <li>
                 <i className='fa fa-map'></i>
-                203 Fake St. Mountain View, San Francisco, California, USA
+                Okota/Isolo Lagos Nigeria
               </li>
               <li>
                 <i className='fa fa-phone-alt'></i>
-                +2 392 3929 210
+                +2347039882319
               </li>
               <li>
                 <i className='fa fa-paper-plane'></i>
-                info@yourdomain.com
+                ikechukwuarinze614@gmail.com
               </li>
             </ul>
           </div>

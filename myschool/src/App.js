@@ -26,7 +26,7 @@ class App extends Component {
   refreshList = () => {
     axios
       .get("/api/authy/")
-      .then((res) => this.setState({ todoList: res.data }))
+      .then((res) => this.setState({ mySchool: res.data }))
       .catch((err) => console.log(err));
   };
 
@@ -51,7 +51,7 @@ class App extends Component {
   };
 
   render() {
-    const { currentForm, todoList } = this.state;
+    const { currentForm, mySchool } = this.state;
 
     return (
       <Router>
