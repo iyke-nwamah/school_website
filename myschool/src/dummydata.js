@@ -46,7 +46,7 @@ export const homeAbout = [
       id: 1,
       cover: "../images/courses/c1.png",
       coursesName: "Introducing to Software Engineering",
-      courTeacher: [
+      courseTeacher: [
         {
           dcover: "./images/back.webp",
           name: "by John Smith",
@@ -60,7 +60,7 @@ export const homeAbout = [
       id: 2,
       cover: "../images/courses/c2.png",
       coursesName: "Enhancing Adobe Photoshop CC 2020 Skills",
-      courTeacher: [
+      courseTeacher: [
         {
           dcover: "./images/back.webp",
           name: "by Ram Gurung",
@@ -74,7 +74,7 @@ export const homeAbout = [
       id: 3,
       cover: "../images/courses/c3.png",
       coursesName: "HTML, CSS, and Javascript for Web Developers",
-      courTeacher: [
+      courseTeacher: [
         {
           dcover: "./images/back.webp",
           name: "by Saroj Nepal",
@@ -88,7 +88,7 @@ export const homeAbout = [
       id: 4,
       cover: "../images/courses/c4.png",
       coursesName: "Introducing to Programming with WordPress",
-      courTeacher: [
+      courseTeacher: [
         {
           dcover: "./images/back.webp",
           name: "by Prabin Thapa Mager",
@@ -102,7 +102,7 @@ export const homeAbout = [
       id: 5,
       cover: "../images/courses/c5.png",
       coursesName: "Introducing to Programming with ReactJS",
-      courTeacher: [
+      courseTeacher: [
         {
           dcover: "./images/back.webp",
           name: "by Sunil Bishowkaram",
@@ -116,7 +116,7 @@ export const homeAbout = [
       id: 6,
       cover: "../images/courses/c6.png",
       coursesName: "Learn Frontend Programming Language",
-      courTeacher: [
+      courseTeacher: [
         {
           dcover: "./images/back.webp",
           name: "by Sunil Bishowkaram",
@@ -130,7 +130,7 @@ export const homeAbout = [
       id: 7,
       cover: "../images/courses/c7.png",
       coursesName: "Introducing to with HTML / CSS",
-      courTeacher: [
+      courseTeacher: [
         {
           dcover: "./images/back.webp",
           name: "by Price",
@@ -144,7 +144,7 @@ export const homeAbout = [
       id: 8,
       cover: "../images/courses/c8.png",
       coursesName: "Introducing to with JAVA",
-      courTeacher: [
+      courseTeacher: [
         {
           dcover: "./images/back.webp",
           name: "by Petter",
@@ -158,7 +158,7 @@ export const homeAbout = [
       id: 9,
       cover: "../images/courses/c9.png",
       coursesName: "Introducing to with HTML / CSS / JAVASCRIPT",
-      courTeacher: [
+      courseTeacher: [
         {
           dcover: "./images/back.webp",
           name: "by Petter",
@@ -389,7 +389,7 @@ export const homeAbout = [
       cover: "../images/blog/b6.webp",
     },
   ]
-  export const testimonal = [
+  export const testimonial = [
     {
       id: 1,
       name: "ROGER SCOTT",

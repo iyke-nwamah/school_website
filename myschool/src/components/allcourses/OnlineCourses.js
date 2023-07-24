@@ -1,5 +1,5 @@
 import React from "react"
-import "./courses.css"
+import "./Courses.css"
 import { online } from "../../dummydata"
 import Heading from "../common/heading/Heading"
 

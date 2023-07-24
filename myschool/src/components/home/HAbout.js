@@ -33,7 +33,7 @@ const HAbout = () => {
                         <label htmlFor=''>(5.0)</label>
                       </div>
                       <div className='details'>
-                        {val.courTeacher.map((details) => (
+                        {val.courseTeacher.map((details) => (
                           <>
                             <div className='box'>
                               <div className='dimg'>

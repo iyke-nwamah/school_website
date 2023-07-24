@@ -15,4 +15,4 @@ const Hprice = () => {
   )
 }
 
-export default Hprice
+export default Hprice;
