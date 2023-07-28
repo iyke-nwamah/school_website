@@ -1,36 +1,38 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./Header.css";
 import Head from "./Head";
 
 const Header = () => {
   const [click, setClick] = useState(false)
+  const handleClick = () => setClick(!click);
+  const closeMobileMenu = () => setClick(false);
   return (
     <>
       <Head />
       <header>
       <nav className="flexSB">
-        <ul className={click ? "mobile-nav" : "flexSB"} onClick={() => setClick(false)}>
+        <ul className={click ? "mobile-nav" : "flexSB"}>
           <li>
-            <Link to="/">Home</Link>
+            <Link to="/" className="nav-links" onClick={closeMobileMenu}>Home</Link>
           </li>
           <li>
             <Link to="/courses">All Courses</Link>
           </li>
           <li>
-            <Link to="/about">About</Link>
+            <Link to="/about" className="nav-links1" onClick={closeMobileMenu}>About</Link>
           </li>
           <li>
-            <Link to="/pricing">Pricing</Link>
+            <Link to="/pricing" className="nav-links1" onClick={closeMobileMenu}>Pricing</Link>
           </li>
           <li>
-            <Link to="/journal">Journal</Link>
+            <Link to="/Journal" className="nav-links1" onClick={closeMobileMenu}>Journal</Link>
           </li>
           <li>
-            <Link to="/contact">Contact</Link>
+            <Link to="/contact" className="nav-links1" onClick={closeMobileMenu}>Contact</Link>
           </li>
           <li>
-            <Link to="/login">Login</Link>
+            <Link to="/login" className="nav-links1" onClick={closeMobileMenu}>Login</Link>
           </li>
         </ul>
         <div className="start">
