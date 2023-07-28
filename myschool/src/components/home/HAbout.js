@@ -11,10 +11,9 @@ const HAbout = () => {
         <div className='container'>
           <Heading subtitle='our courses' title='explore our popular online courses' />
 
-          <div className='coursesCard'>
-            {/* copy code form  coursesCard */}
-            <div className='grid2'>
-              {coursesCard.slice(0, 3).map((val) => (
+          <div className='grid2'>
+            {coursesCard.slice(0, 3).map((val, index) => (
+              <div className='coursesCard' key={index}>
                 <div className='items'>
                   <div className='content flex'>
                     <div className='left'>
@@ -33,8 +32,8 @@ const HAbout = () => {
                         <label htmlFor=''>(5.0)</label>
                       </div>
                       <div className='details'>
-                        {val.courseTeacher.map((details) => (
-                          <>
+                        {val.courseTeacher.map((details, index) => (
+                          <React.Fragment key={index}>
                             <div className='box'>
                               <div className='dimg'>
                                 <img src={details.dcover} alt='' />
@@ -44,7 +43,7 @@ const HAbout = () => {
                               </div>
                             </div>
                             <span>{details.totalTime}</span>
-                          </>
+                          </React.Fragment>
                         ))}
                       </div>
                     </div>
@@ -56,14 +55,15 @@ const HAbout = () => {
                   </div>
                   <button className='outline-btn'>ENROLL NOW !</button>
                 </div>
-              ))}
-            </div>
+              </div>
+            ))}
           </div>
+
+          <OnlineCourses />
         </div>
-        <OnlineCourses />
       </section>
     </>
-  )
-}
+  );
+};
 
 export default HAbout

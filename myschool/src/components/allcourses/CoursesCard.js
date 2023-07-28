@@ -15,7 +15,7 @@ const CoursesCard = () => {
                     <img src={val.cover} alt='' />
                   </div>
                 </div>
-                <div className='text'>
+                <div className='text' key={val.courseName}>
                   <h1>{val.coursesName}</h1>
                   <div className='rate'>
                     <i className='fa fa-star'></i>

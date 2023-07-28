@@ -1,31 +1,31 @@
-.newletter {
+.newsletter {
     background-color: #1eb2a6;
     padding: 50px 0;
     color: #fff;
   }
-  .newletter .right,
-  .newletter .left {
+  .newsletter .right,
+  .newsletter .left {
     padding-right: 50px;
   }
-  .newletter h1 {
+  .newsletter h1 {
     color: #fff;
     font-size: 30px;
     font-weight: 500;
     margin-bottom: 15px;
   }
-  .newletter .right {
+  .newsletter .right {
     display: flex;
     justify-content: space-between;
     align-items: center;
   }
-  .newletter input {
+  .newsletter input {
     width: 100%;
     padding: 20px;
     border: none;
     outline: none;
     height: 30px;
   }
-  .newletter i {
+  .newsletter i {
     padding: 12px;
     color: #1eb2a6;
     background-color: #fff;

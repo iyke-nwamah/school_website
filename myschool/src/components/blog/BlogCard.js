@@ -10,7 +10,7 @@ const BlogCard = () => {
             <img src={val.cover} alt='' />
           </div>
           <div className='text'>
-            <div className='admin flexSB'>
+            <div className='admin flexSB' key={val.title}>
               <span>
                 <i className='fa fa-user'></i>
                 <label htmlFor=''>{val.type}</label>

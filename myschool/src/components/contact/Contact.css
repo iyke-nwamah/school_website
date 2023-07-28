@@ -13,6 +13,13 @@
   .contacts p {
     color: grey;
   }
+  .contacts .icons {
+    color: blue;
+  }
+
+.contacts .icons a:hover {
+  color: #1eb2a6;
+}
   .contacts .items {
     margin: 30px 0;
   }
