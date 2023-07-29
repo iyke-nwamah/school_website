@@ -1,26 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Heading from "../../common/heading/Heading";
 import "./Hero.css";
 
 const Hero = () => {
-  const [click, setClick] = useState(false);
-  const [button, setButton] = useState(true); // Added state for button visibility
-  const handleClick = () => setClick(!click);
-  const closeMobileMenu = () => setClick(false);
-
-  const showButton = () => {
-    if (window.innerWidth <= 960) {
-      setButton(false);
-    } else {
-      setButton(true);
-    }
-  };
-
-  useEffect(() => {
-    showButton();
-  }, []);
-
-  window.addEventListener("resize", showButton);
 
   return (
     <>

@@ -9,11 +9,9 @@ import Blog from "./components/blog/Blog";
 import Contact from "./components/contact/Contact";
 import Footer from "./components/common/footer/Footer";
 import Home from "./components/home/Home";
-import SchoolListPage from "./pages/SchoolListPage"
 const App = () => {
     return (
       <Router>
-        <SchoolListPage/>
         <Header />
         <Routes>
           <Route exact path="/" element={<Home />} />

@@ -1,11 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./Header.css";
 import Head from "./Head";
 
 const Header = () => {
   const [click, setClick] = useState(false)
-  const handleClick = () => setClick(!click);
   const closeMobileMenu = () => setClick(false);
   return (
     <>
@@ -38,10 +37,6 @@ const Header = () => {
         <div className="start">
           <div className="button">GET CERTIFICATE</div>
         </div>
-        <button className="toggle" onClick={() => setClick(!click)}>
-          {click ? <i className="fa fa-times"></i> : <i className="fa fa-bars"></i>}
-
-        </button>
       </nav>
       </header>
     </>
