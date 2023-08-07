@@ -11,5 +11,10 @@ class School(models.Model):
     updated = models.DateTimeField(auto_now=True)
     created = models.DateTimeField(auto_now_add=True)
     
+    
+class MyUserModel(models.Model):
+    username = models.CharField(max_length=100)
+    last_login = models.DateTimeField(auto_now=True)
+    
     def __str__(self):
         return self.username, self.email, self.password
