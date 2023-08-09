@@ -1,0 +1,100 @@
+import React, { useState, useEffect} from "react";
+import { Link } from "react-router-dom";
+import "./Header.css";
+import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
+import Dropdown from "./Dropdown";
+import { Button } from './Button';
+
+function Header() {
+  const [button, setButton] = useState(true);
+  const [click, setClick] = useState(false);
+  const [dropdown, setDropdown] = useState(false);
+  const [toggle, setToggle] = useState(false);
+
+  const handleClick = () => setClick(!click);
+  const closeMobileMenu = () => setClick(false);
+  const handleToggle = () => setToggle(!toggle);
+
+  const onMouseEnter = () => {
+    if (window.innerWidth >= 960) {
+      setDropdown(true);
+    }
+  };
+
+  const onMouseLeave = () => {
+    if (window.innerWidth >= 960) {
+      setDropdown(false);
+    }
+  };
+
+   const showButton = () => {
+    if (window.innerWidth <= 960) {
+      setButton(false);
+    } else {
+      setButton(true);
+    }
+  };
+
+  useEffect(() => {
+    showButton();
+  }, []);
+
+  window.addEventListener('resize', showButton);
+
+
+  return (
+    <>
+      <nav className="navbar">
+        <Link to="/" className="navbar-logo" onClick={closeMobileMenu}>
+          USAHIHI HEALTH GROUP
+          <i className="fab fa-firstdraft" />
+        </Link>
+        <div className="menu-icon" onClick={handleClick}>
+          <i className={click ? "fas fa-times" : "fas fa-bars"} />
+        </div>
+        <ul className={click ? "nav-menu active" : "nav-menu"}>
+          <li className="nav-item">
+            <Link to="/" className="nav-links" onClick={closeMobileMenu}>
+              Home
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link to="/courses" className="nav-links" onClick={closeMobileMenu}>
+              All Courses
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link to="/about" className="nav-links" onClick={closeMobileMenu}>
+              About
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link to="/pricing" className="nav-links" onClick={closeMobileMenu}>
+              Pricing
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link to="/journal" className="nav-links" onClick={closeMobileMenu}>
+              Journal
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link to="/contact" className="nav-links" onClick={closeMobileMenu}>
+              Contact
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link to="/login" className="nav-links" onClick={closeMobileMenu}>
+              Login
+            </Link>
+          </li>
+        </ul>
+        <div className="start">
+          <div className="button">GET CERTIFICATE</div>
+        </div>
+      </nav>
+      </header>
+    </>
+  );
+};
+export default Header;

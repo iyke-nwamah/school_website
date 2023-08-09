@@ -11,6 +11,7 @@ django-cors-headers = "*"
 django-crispy-forms = "*"
 crispy-bootstrap4 = "*"
 djangorestframework-simplejwt = "*"
+pillow = "*"
 
 [dev-packages]
 autopep8 = "*"

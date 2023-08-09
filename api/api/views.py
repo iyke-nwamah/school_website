@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.http import HttpResponse
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from .serializers import SchoolSerializer
@@ -71,6 +72,13 @@ def signup(request):
     return Response(serializer.data)
 
 
+def post(self, request, *args, **kwargs):
+    cover = request.data['cover']
+    username = request.data['username']
+    School.objects.create(username=username, cover=cover)
+    return HttpResponse({'message': 'Image successfully uploaded'}, status=200)
+
+
 def register_request(request):
     if request.method == "POST":
         form = SchoolForm(request.POST)
@@ -78,7 +86,7 @@ def register_request(request):
             user = form.save()
             login(request, user)
             messages.success(request, "Registration successful.")
-            return redirect("myschool")
+            return redirect("/")
         messages.error(
             request, "Unsuccessful registration. Invalid information.")
     form = SchoolForm()
