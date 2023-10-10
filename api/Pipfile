@@ -12,6 +12,9 @@ crispy-bootstrap4 = "*"
 djangorestframework-simplejwt = "*"
 pillow = "*"
 psycopg2 = "*"
+whitenoise = "*"
+gunicorn = "*"
+python-decouple = "*"
 
 [dev-packages]
 
