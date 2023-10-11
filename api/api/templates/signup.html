@@ -10,8 +10,6 @@
 	<form method="POST">
 		{% csrf_token %}
 		{{ register_form|crispy }}      
-		<button>Upload Images</button>  
-		<br/>
 		
 		<br/>
 		<a href="/"><button class="btn btn-primary" type="submit">Register</button></a>
