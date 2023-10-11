@@ -86,7 +86,7 @@ def register_request(request):
             user = form.save()
             login(request, user)
             messages.success(request, "Registration successful.")
-            return redirect("/")
+            return redirect("dashboard")
         messages.error(
             request, "Unsuccessful registration. Invalid information.")
     form = SchoolForm()
@@ -103,15 +103,23 @@ def login_request(request):
             if user is not None:
                 login(request, user)
                 messages.info(request, f"You are now logged in as {username}.")
-                return redirect("myschool")
+                return redirect("dashboard")
             else:
                 messages.error(request, "Invalid username or password.")
         else:
             messages.error(request, "Invalid username or password.")
+            # Debugging output
+    #print("Form Errors:", form.errors)
+    #print("User:", user)
     form = AuthenticationForm()
     return render(request=request, template_name="login.html", context={"login_form": form})
 
 
-def myschool(request):
+def display_cover_image(request, school_id):
+    school = School.objects.get(pk=school_id)
+    return render(request, 'cover_image.html', {'school': school})
+
+
+def dashboard(request):
     context = {}
     return render(request, "index.html", context)

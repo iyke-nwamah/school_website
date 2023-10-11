@@ -9,7 +9,9 @@ class SchoolForm(forms.Form):
     lastname = forms.CharField(required=True, max_length=200)
     username = forms.CharField(required=True, max_length=200)
     email = forms.EmailField(required=False, max_length=200)
-    password = forms.CharField(widget=forms.PasswordInput(), max_length=200, required=True)
+    password = forms.CharField(widget=forms.PasswordInput, max_length=200, required=True)
+    
+    
 
 
 class SchoolForm(forms.ModelForm):

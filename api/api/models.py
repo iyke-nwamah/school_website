@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import AbstractUser
 
 # Create your models here.
 
@@ -16,6 +17,7 @@ class School(models.Model):
     updated = models.DateTimeField(auto_now=True)
     created = models.DateTimeField(auto_now_add=True)
     cover = models.ImageField(blank=True, null=True, upload_to=upload_path)
+    last_login = models.DateTimeField(auto_now=True)
 
 
 class MyUserModel(models.Model):
