@@ -25,7 +25,7 @@ SECRET_KEY = os.environ.get('112233445566', default='112233445566')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get("Debug", "True") == "True"
 
-ALLOWED_HOSTS = ["localhost", '192.168.10.105']
+ALLOWED_HOSTS = ["localhost", '192.168.10.105', 'school-webapi.onrender.com']
 
 
 # Application definition
