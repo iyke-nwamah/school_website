@@ -28,7 +28,7 @@ environ.Env.read_env()
 SECRET_KEY = os.environ.get('112233445566', default='112233445566')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get("Debug", "FALSE") == "True"
+DEBUG = os.environ.get("Debug", "TRUE") == "True"
 
 ALLOWED_HOSTS = ["localhost", '192.168.10.105', 'myschool-sbc9.onrender.com', '127.0.0.1']
 
