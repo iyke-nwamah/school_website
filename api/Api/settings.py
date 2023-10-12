@@ -11,9 +11,14 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 import os
 from pathlib import Path
+import dj_database_url
+import environ
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+env = environ.Env()
+environ.Env.read_env()
 
 
 # Quick-start development settings - unsuitable for production
@@ -23,9 +28,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('112233445566', default='112233445566')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get("Debug", "True") == "True"
+DEBUG = os.environ.get("Debug", "FALSE") == "True"
 
-ALLOWED_HOSTS = ["localhost", '192.168.10.105', 'school-webapi.onrender.com']
+ALLOWED_HOSTS = ["localhost", '192.168.10.105', 'school-webapi.onrender.com', '127.0.0.1']
 
 
 # Application definition
@@ -85,16 +90,17 @@ WSGI_APPLICATION = 'Api.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-DATABASES = {
+""""DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'mainproject',
         'USER': 'main_user',
         'PASSWORD': 'September95@',
         'HOST': 'localhost',
-        'PORT': '',
+        'PORT': '5432',
     }
 }
+"""
 
 
 # Password validation
@@ -146,3 +152,8 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = 'bootstrap4'
 
+
+#Render postgresql database live
+DATABASES = {
+    'default': dj_database_url.parse(env('DATABASE_URL'))
+}
